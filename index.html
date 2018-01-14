@@ -1,0 +1,634 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Archery API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+    <link href="images/favicon.png" rel="icon" type="image/png" />
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-projects" class="toc-h2 toc-link" data-title="Get All Projects">Get All Projects</a>
+                  </li>
+                  <li>
+                    <a href="#create-project" class="toc-h2 toc-link" data-title="Create Project">Create Project</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#web-scan" class="toc-h1 toc-link" data-title="Web Scan">Web Scan</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-web-scans" class="toc-h2 toc-link" data-title="Get All Web Scans">Get All Web Scans</a>
+                  </li>
+                  <li>
+                    <a href="#launch-web-scan" class="toc-h2 toc-link" data-title="Launch Web Scan">Launch Web Scan</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#network-scans" class="toc-h1 toc-link" data-title="Network Scans">Network Scans</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-network-scans" class="toc-h2 toc-link" data-title="Get All Network Scans">Get All Network Scans</a>
+                  </li>
+                  <li>
+                    <a href="#scan-launch" class="toc-h2 toc-link" data-title="Scan Launch">Scan Launch</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/anandtiwarics/archerysec/'>Sign Up for a Contribution</a></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1><pre class="highlight shell tab-shell"><code>
+ _          _ _             
+ | |__   ___| | | ___        
+ | <span class="s1">'_ \ / _ \ | |/ _ \       
+ | | | |  __/ | | (_) |      
+ |_| |_|\___|_|_|\___/     _
+ __      _____  _ __| | __| |
+ \ \ /\ / / _ \| '</span>__| |/ _<span class="sb">`</span> |
+  <span class="se">\ </span>V  V / <span class="o">(</span>_<span class="o">)</span> | |  | | <span class="o">(</span>_| |
+   <span class="se">\_</span>/<span class="se">\_</span>/ <span class="se">\_</span>__/|_|  |_|<span class="se">\_</span>_,_|
+
+
+
+</code></pre>
+<p>Welcome to the Archery Tool API! You can use our API to access Archery Tool API endpoints, which can help you to launch scan and manage vulnerabilities.</p>
+
+<p>The API is organized around REST. All request and response bodies, including errors, are encoded in JSON.</p>
+
+<p>To play around with a few examples, we recommend a REST client called Postman. Simply tap the button below to import a pre-made collection of examples.</p>
+
+<p><a href="https://www.getpostman.com/collections/:collection_id?"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+
+curl http://localhost:8000/api-token-auth/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{"username":"admin","password":"admin@123"}'</span> 
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+    .eyJ1c2VybmFtZSI6ImFkbWluIiwidXNlcl9pZCI6MSwiZW1haW
+    wiOiIiLCJleHAiOjE1MTU4NzQxNDR9.3Oy0ga2jp3
+    A8Pjh0T87LZijBh-M94z-mgjZ06j-mI0w"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>Provide your Archery tool credential in order to get the authentication token which will use for all further API calls. </p>
+
+<p>Now in order to access protected api urls you must include the <code>Authorization: JWT &lt;your_token&gt;</code> header.</p>
+
+<aside class="notice">
+You must replace <code>Token</code> with your personal API token.
+</aside>
+<h1 id='projects'>Projects</h1><h2 id='get-all-projects'>Get All Projects</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/project/ <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: JWT token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"project_id"</span><span class="p">:</span><span class="s2">"cf8ca247-dde3-445c-bfee-07366d7c6136"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_name"</span><span class="p">:</span><span class="s2">"ASDF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_disc"</span><span class="p">:</span><span class="s2">"ASD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_start"</span><span class="p">:</span><span class="s2">"2018-01-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_end"</span><span class="p">:</span><span class="s2">"2018-01-09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_owner"</span><span class="p">:</span><span class="s2">"SDF"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre><h2 id='create-project'>Create Project</h2><pre class="highlight shell tab-shell"><code>
+curl http://localhost:8000/api/project/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"project_name":"ASDF",
+          "project_disc":"ASD",
+          "project_start":"2018-01-11",
+          "project_end":"2018-01-09",
+          "project_owner":"SDF"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Project Created"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_name</td>
+<td>Yes</td>
+<td>Provide the project Name.</td>
+</tr>
+<tr>
+<td>project_disc</td>
+<td>Yes</td>
+<td>Project Description.</td>
+</tr>
+<tr>
+<td>project_start</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>project_end</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>project_owner</td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='web-scan'>Web Scan</h1><h2 id='get-all-web-scans'>Get All Web Scans</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: JWT token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://demo.testfire.net"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93a102fe-0d16-465b-b487-f331af1bfb9b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_scanid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f47616d-2b97-4ba2-a483-1a963de7e6c3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vul_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.851000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.858000Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://demo.testfire.net"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93a102fe-0d16-465b-b487-f331af1bfb9b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_scanid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23ac9336-42f4-4752-a2b1-5ac73a1d9af4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vul_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"164"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.851000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.858000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all webscans.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8000/api/webscan/</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<aside class="success">
+authenticated
+</aside>
+<h2 id='launch-web-scan'>Launch Web Scan</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"scan_url":"http://example.com","project_id":"project_id"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Scan Launched"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific kitten.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint deletes a specific kitten.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to delete</td>
+</tr>
+</tbody></table>
+<h1 id='network-scans'>Network Scans</h1><h2 id='get-all-network-scans'>Get All Network Scans</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://localhost:8000/api/networkscan/"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: JWT token"</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.222.131"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c277f6e8-48ac-4245-bd66-6091d0f49d63"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e0266f2-49af-49ab-917e-b8302a0bddc7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2365"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"344"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"528"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.269000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.283000Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.222.131"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93a102fe-0d16-465b-b487-f331af1bfb9b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e082a24e-5a95-43d1-bf13-1305c1c94e4e"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8aac9e08-7069-45f0-b7f3-491a3b667e6c"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"307"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.269000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.283000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+
+</span></code></pre><h2 id='scan-launch'>Scan Launch</h2><pre class="highlight shell tab-shell"><code>
+curl http://localhost:8000/api/networkscan/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"scan_ip":"192.168.1.1","project_id":"project_id"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Scan Launched"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre><h1 id='errors'>Errors</h1>
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

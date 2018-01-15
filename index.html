@@ -466,24 +466,10 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
 <p>This endpoint retrieves all webscans results. Archery performing webscans and if you want to list down all available scans, you can use this API. This is simple HTTP get request which list down all your web scans. </p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/api/webscan/</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
 
-<aside class="success">
+<!-- <aside class="success">
 authenticated
-</aside>
+</aside> -->
 <h2 id='launch-web-scan'>Launch Web Scan</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
     -X POST <span class="se">\</span>
     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -500,21 +486,28 @@ authenticated
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>The API endpoint use for getting list all WebScans To start scan from the API</p>
+<p>The API endpoint use for Launch the scans. You can provide all required input and scan will be launched.</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>POST http://localhost:8000/api/webscan/</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>scan_url</td>
+<td>Yes</td>
+<td>Provide the scan target URL</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Yes</td>
+<td>Provide Project ID</td>
 </tr>
 </tbody></table>
 <h1 id='network-scans'>Network Scans</h1><h2 id='get-all-network-scans'>Get All Network Scans</h2><pre class="highlight shell tab-shell"><code>
@@ -556,7 +549,11 @@ curl <span class="s2">"http://localhost:8000/api/networkscan/"</span> <span clas
 </span><span class="p">]</span><span class="w">
 
 
-</span></code></pre><h2 id='scan-launch'>Scan Launch</h2><pre class="highlight shell tab-shell"><code>
+</span></code></pre>
+<p>This endpoint retrieves all network scan results. Archery performing network and if you want to list down all available scans, you can use this API. This is simple HTTP get request which list down all your web scans. </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://localhost:8000/api/webscan/</code></p>
+<h2 id='scan-launch'>Scan Launch</h2><pre class="highlight shell tab-shell"><code>
 curl http://localhost:8000/api/networkscan/ <span class="se">\</span>
     -X POST <span class="se">\</span>
     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -574,7 +571,32 @@ curl http://localhost:8000/api/networkscan/ <span class="se">\</span>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre>
+<p>The API endpoint use for Launch the scans. You can provide all required input and scan will be launched.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/api/networkscan/</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scan_ip</td>
+<td>Yes</td>
+<td>Provide the scan target IP</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Yes</td>
+<td>Provide Project ID</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
 <p>The Kittn API uses the following error codes:</p>

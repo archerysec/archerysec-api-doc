@@ -221,6 +221,11 @@
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#note" class="toc-h2 toc-link" data-title="Note">Note</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
@@ -292,6 +297,8 @@
 <p>To play around with a few examples, we recommend a REST client called Postman. Simply tap the button below to import a pre-made collection of examples.</p>
 
 <p><a href="https://www.getpostman.com/collections/:collection_id?"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+<h3 id='note'>Note</h3>
+<p>Archery tool and Documentation is still <strong>in-progress</strong>. When i have free-time, i will improve documentation.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
@@ -387,7 +394,7 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>Create new project using </p>
+<p>Create a new project for an account. Project name and project description is required field to create new project. Others are optional and may you leave empty.</p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -399,27 +406,27 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
 <tr>
 <td>project_name</td>
 <td>Yes</td>
-<td>Provide the project Name.</td>
+<td>Provide the project Name. Archery including all projects name is required to create new porject.</td>
 </tr>
 <tr>
 <td>project_disc</td>
 <td>Yes</td>
-<td>Project Description.</td>
+<td>Project Description. Provide proper descriptions about the project for understanding</td>
 </tr>
 <tr>
 <td>project_start</td>
-<td>No</td>
-<td></td>
+<td>Optional</td>
+<td>Project start date. This parameter is optional.</td>
 </tr>
 <tr>
 <td>project_end</td>
-<td>No</td>
-<td></td>
+<td>Optional</td>
+<td>Project end date. This parameter is optional</td>
 </tr>
 <tr>
 <td>project_owner</td>
-<td>No</td>
-<td></td>
+<td>Optional</td>
+<td>Tag a Owner of the project. This Parameter is optional.</td>
 </tr>
 </tbody></table>
 <h1 id='web-scan'>Web Scan</h1><h2 id='get-all-web-scans'>Get All Web Scans</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
@@ -456,7 +463,7 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all webscans.</p>
+<p>This endpoint retrieves all webscans results. Archery performing webscans and if you want to list down all available scans, you can use this API. This is simple HTTP get request which list down all your web scans. </p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/api/webscan/</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
@@ -467,6 +474,11 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -488,7 +500,7 @@ authenticated
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>The API endpoint use for getting list all WebScans To start scan from the API</p>
 
 <!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h3 id='http-request-2'>HTTP Request</h3>

@@ -25,7 +25,7 @@ https://github.com/archerysec/archerysec
 * Vulnerability Assessment
 * Vulnerability Management
 
-### Presented At:
+### Black Hat sessions
 https://www.toolswatch.org/2018/01/black-hat-arsenal-asia-2018-great-lineup/
 
 ### Documentation

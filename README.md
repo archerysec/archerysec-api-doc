@@ -1,4 +1,4 @@
-# Archery – Open Source Vulnerability Assessment and Management
+# Archery
 
 <p align="center">
   <img width="350" height="100" src="https://raw.githubusercontent.com/anandtiwarics/archerysecurity/master/archerysecurity/static/photo.png">

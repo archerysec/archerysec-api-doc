@@ -1,4 +1,4 @@
-# Archery
+# Archery – <small>Open Source Vulnerability Assessment and Management</small>
 
 <p align="center">
   <img width="350" height="100" src="https://raw.githubusercontent.com/anandtiwarics/archerysecurity/master/archerysecurity/static/photo.png">
@@ -22,7 +22,8 @@ https://github.com/archerysec/archerysec
 
 
 ### Categories
-Vulnerability Assessment
+* Vulnerability Assessment
+* Vulnerability Management
 
 ### Presented At:
 https://www.toolswatch.org/2018/01/black-hat-arsenal-asia-2018-great-lineup/
@@ -30,7 +31,7 @@ https://www.toolswatch.org/2018/01/black-hat-arsenal-asia-2018-great-lineup/
 ### Documentation
 https://archerysec.github.io/archerysec/
 
-### Lead Developers
+### Lead Developer(s)
 * Anand Tiwari -  https://github.com/anandtiwarics
 
 ### Social Media

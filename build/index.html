@@ -1,0 +1,839 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Archery API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+    <link href="images/favicon.png" rel="icon" type="image/png" />
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#note" class="toc-h2 toc-link" data-title="Note">Note</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-projects" class="toc-h2 toc-link" data-title="Get All Projects">Get All Projects</a>
+                  </li>
+                  <li>
+                    <a href="#create-project" class="toc-h2 toc-link" data-title="Create Project">Create Project</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#web-scan" class="toc-h1 toc-link" data-title="Web Scan">Web Scan</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-web-scans" class="toc-h2 toc-link" data-title="Get All Web Scans">Get All Web Scans</a>
+                  </li>
+                  <li>
+                    <a href="#launch-web-scan" class="toc-h2 toc-link" data-title="Launch Web Scan">Launch Web Scan</a>
+                  </li>
+                  <li>
+                    <a href="#get-scan-results" class="toc-h2 toc-link" data-title="Get Scan Results">Get Scan Results</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#network-scans" class="toc-h1 toc-link" data-title="Network Scans">Network Scans</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-network-scans" class="toc-h2 toc-link" data-title="Get All Network Scans">Get All Network Scans</a>
+                  </li>
+                  <li>
+                    <a href="#scan-launch" class="toc-h2 toc-link" data-title="Scan Launch">Scan Launch</a>
+                  </li>
+                  <li>
+                    <a href="#get-scan-results-2" class="toc-h2 toc-link" data-title="Get Scan Results">Get Scan Results</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/anandtiwarics/archerysec/'>Sign Up for a Contribution</a></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1><pre class="highlight shell tab-shell"><code>                    _                     
+     /<span class="se">\ </span>           | |                    
+    /  <span class="se">\ </span>  _ __ ___| |__   ___ _ __ _   _ 
+   / /<span class="se">\ \ </span>| <span class="s1">'__/ __| '</span>_ <span class="se">\ </span>/ _ <span class="se">\ </span><span class="s1">'__| | | |
+  / ____ \| | | (__| | | |  __/ |  | |_| |
+ /_/    \_\_|  \___|_| |_|\___|_|   \__, |
+                                     __/ |
+                                    |___/ 
+
+</span></code></pre>
+<p>Welcome to the Archery Tool API! You can use our API to access Archery Tool API endpoints, which can help you to launch scan and manage vulnerabilities.</p>
+
+<p>The API is organized around REST. All request and response bodies, including errors, are encoded in JSON.</p>
+
+<p>To play around with a few examples, we recommend a REST client called Postman. Simply tap the button below to import a pre-made collection of examples.</p>
+
+<p><a href="https://www.getpostman.com/collections/:collection_id?"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+<h3 id='note'>Note</h3>
+<p>Archery tool and Documentation is still <strong>in-progress</strong>. When i have free-time, i will improve documentation.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+
+curl http://localhost:8000/api-token-auth/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{"username":"admin","password":"admin@123"}'</span> 
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+    .eyJ1c2VybmFtZSI6ImFkbWluIiwidXNlcl9pZCI6MSwiZW1haW
+    wiOiIiLCJleHAiOjE1MTU4NzQxNDR9.3Oy0ga2jp3
+    A8Pjh0T87LZijBh-M94z-mgjZ06j-mI0w"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>Provide your Archery tool credential in order to get the authentication token which will use for all further API calls. </p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>username</code></td>
+<td>Yes</td>
+<td>Provide your username.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>Yes</td>
+<td>Provide your password.</td>
+</tr>
+</tbody></table>
+<h1 id='projects'>Projects</h1><h2 id='get-all-projects'>Get All Projects</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/project/ <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: JWT token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"project_id"</span><span class="p">:</span><span class="s2">"cf8ca247-dde3-445c-bfee-07366d7c6136"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_name"</span><span class="p">:</span><span class="s2">"ASDF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_disc"</span><span class="p">:</span><span class="s2">"ASD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_start"</span><span class="p">:</span><span class="s2">"2018-01-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_end"</span><span class="p">:</span><span class="s2">"2018-01-09"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project_owner"</span><span class="p">:</span><span class="s2">"SDF"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>Get the list of all projects and create projects using API. Archery tool has the ability to manage your projects and their scans. We can create projects bin where we are performing scans.</p>
+
+<p>Use the project list API to get the all available projects in Archery Tool.</p>
+
+<p>Now in order to access protected api urls you must include the <code>Authorization: JWT &lt;your_token&gt;</code> header.</p>
+
+<aside class="notice">
+You must replace <code>Token</code> with your personal API token.
+</aside>
+<h2 id='create-project'>Create Project</h2><pre class="highlight shell tab-shell"><code>
+curl http://localhost:8000/api/project/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"project_name":"ASDF",
+          "project_disc":"ASD",
+          "project_start":"2018-01-11",
+          "project_end":"2018-01-09",
+          "project_owner":"SDF"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Project Created"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Create a new project for an account. Project name and project description is required field to create new project. Others are optional and may you leave empty.</p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_name</td>
+<td>Yes</td>
+<td>Provide the project Name. Archery including all projects name is required to create new porject.</td>
+</tr>
+<tr>
+<td>project_disc</td>
+<td>Yes</td>
+<td>Project Description. Provide proper descriptions about the project for understanding</td>
+</tr>
+<tr>
+<td>project_start</td>
+<td>Optional</td>
+<td>Project start date. This parameter is optional.</td>
+</tr>
+<tr>
+<td>project_end</td>
+<td>Optional</td>
+<td>Project end date. This parameter is optional</td>
+</tr>
+<tr>
+<td>project_owner</td>
+<td>Optional</td>
+<td>Tag a Owner of the project. This Parameter is optional.</td>
+</tr>
+</tbody></table>
+<h1 id='web-scan'>Web Scan</h1><h2 id='get-all-web-scans'>Get All Web Scans</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: JWT token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://demo.testfire.net"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93a102fe-0d16-465b-b487-f331af1bfb9b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_scanid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f47616d-2b97-4ba2-a483-1a963de7e6c3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vul_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.851000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.858000Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://demo.testfire.net"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93a102fe-0d16-465b-b487-f331af1bfb9b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_scanid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23ac9336-42f4-4752-a2b1-5ac73a1d9af4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vul_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"164"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.851000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.858000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all webscans results. Archery performing webscans and if you want to list down all available scans, you can use this API. This is simple HTTP get request which list down all your web scans. </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8000/api/webscan/</code></p>
+
+<!-- <aside class="success">
+authenticated
+</aside> -->
+<h2 id='launch-web-scan'>Launch Web Scan</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"scan_url":"http://example.com","project_id":"project_id"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Scan Launched"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>The API endpoint use for Launch the scans. You can provide all required input and scan will be launched.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/api/webscan/</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scan_url</td>
+<td>Yes</td>
+<td>Provide the scan target URL</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Yes</td>
+<td>Provide Project ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-scan-results'>Get Scan Results</h2><pre class="highlight shell tab-shell"><code>
+curl http://localhost:8000/api/webscanresult/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"scan_id":"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6706074e-9fb9-48b8-96f9-b2500eba7bff"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4cdf22f5-2edd-4615-8290-bbfcc06421e2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:8008/webscanners/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vuln_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4f0091c-2bc7-4e7a-bd07-47b68f0f51f3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wascid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cweid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"risk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Informational"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.owasp.org/index.php/Web_Application_Security_Testing_Cheat_Sheet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User Agent Fuzzer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"solution"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Header User-Agent"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"evidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sourceid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pluginId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10104"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"other"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"messageId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User Agent Fuzzer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"req_res"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rtt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[]"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1517461799789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"responseHeader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s2">Date: Thu, 01 Feb 2018 05:09:59 GMT</span><span class="se">\r\n</span><span class="s2">Server: WSGIServer/0.1 Python/2.7.13</span><span class="se">\r\n</span><span class="s2">Vary: Cookie</span><span class="se">\r\n</span><span class="s2">X-Frame-Options: SAMEORIGIN</span><span class="se">\r\n</span><span class="s2">Content-Type: text/html; charset=utf-8</span><span class="se">\r\n</span><span class="s2">Content-Length: 2630</span><span class="se">\r\n</span><span class="s2">Set-Cookie: csrftoken=15coi19x5Tb4QklEg614BhFRUKOgvb2dMStqmUOc6c2yLlMsJ2e29lFr5GKgmP4a; expires=Thu, 31-Jan-2019 05:09:59 GMT; Max-Age=31449600; Path=/</span><span class="se">\r\n\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requestBody"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"responseBody"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;!DOCTYPE html&gt;</span><span class="se">\n</span><span class="s2">&lt;html lang=</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n\n</span><span class="s2">&lt;head&gt;</span><span class="se">\n</span><span class="s2">    &lt;title&gt;Archery&lt;/title&gt;</span><span class="se">\n</span><span class="s2">    &lt;link rel=</span><span class="se">\"</span><span class="s2">icon</span><span class="se">\"</span><span class="s2"> href=</span><span class="se">\"</span><span class="s2">/static/logo.png</span><span class="se">\"</span><span class="s2"> type=</span><span class="se">\"</span><span class="s2">image/x-icon</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">    &lt;meta charset=</span><span class="se">\"</span><span class="s2">UTF-8</span><span class="se">\"</span><span class="s2">/&gt;</span><span class="se">\n</span><span class="s2">    &lt;meta name=</span><span class="se">\"</span><span class="s2">viewport</span><span class="se">\"</span><span class="s2"> content=</span><span class="se">\"</span><span class="s2">width=device-width, initial-scale=1.0</span><span class="se">\"</span><span class="s2">/&gt;</span><span class="se">\n</span><span class="s2">    &lt;link rel=</span><span class="se">\"</span><span class="s2">stylesheet</span><span class="se">\"</span><span class="s2"> href=</span><span class="se">\"</span><span class="s2">/static/css/bootstrap.min.css</span><span class="se">\"</span><span class="s2">/&gt;</span><span class="se">\n</span><span class="s2">    &lt;link rel=</span><span class="se">\"</span><span class="s2">stylesheet</span><span class="se">\"</span><span class="s2"> href=</span><span class="se">\"</span><span class="s2">/static/css/bootstrap-responsive.min.css</span><span class="se">\"</span><span class="s2">/&gt;</span><span class="se">\n</span><span class="s2">    &lt;link rel=</span><span class="se">\"</span><span class="s2">stylesheet</span><span class="se">\"</span><span class="s2"> href=</span><span class="se">\"</span><span class="s2">/static/css/archery-login.css</span><span class="se">\"</span><span class="s2">/&gt;</span><span class="se">\n</span><span class="s2">    &lt;link href=</span><span class="se">\"</span><span class="s2">/static/font-awesome/css/font-awesome.css</span><span class="se">\"</span><span class="s2"> rel=</span><span class="se">\"</span><span class="s2">stylesheet</span><span class="se">\"</span><span class="s2">/&gt;</span><span class="se">\n</span><span class="s2">    &lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'&gt;</span><span class="se">\n\n</span><span class="s2">&lt;/head&gt;</span><span class="se">\n</span><span class="s2">&lt;body&gt;</span><span class="se">\n</span><span class="s2">&lt;div id=</span><span class="se">\"</span><span class="s2">loginbox</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">    &lt;form id=</span><span class="se">\"</span><span class="s2">loginform</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">form-vertical</span><span class="se">\"</span><span class="s2"> action=</span><span class="se">\"</span><span class="s2">/auth/</span><span class="se">\"</span><span class="s2"> method=</span><span class="se">\"</span><span class="s2">POST</span><span class="se">\"</span><span class="s2">&gt;&lt;input type='hidden' name='csrfmiddlewaretoken' value='ZbUNJtjW8leoWQxYIvt1vzIqDygVFRw6KYbPNmYB9E5SRRYMbrGZ3DI0OucVwvy3' /&gt;</span><span class="se">\n</span><span class="s2">        &lt;div class=</span><span class="se">\"</span><span class="s2">control-group normal_text</span><span class="se">\"</span><span class="s2">&gt;&lt;h3&gt;&lt;img src=</span><span class="se">\"</span><span class="s2">/static/archery.png</span><span class="se">\"\n</span><span class="s2">                                                        style=</span><span class="se">\"</span><span class="s2">max-width:190px; margin-top: 10px;</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"\"</span><span class="s2">/&gt;&lt;/h3&gt;&lt;/div&gt;</span><span class="se">\n</span><span class="s2">        &lt;div class=</span><span class="se">\"</span><span class="s2">control-group</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">            &lt;div class=</span><span class="se">\"</span><span class="s2">controls</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">                &lt;div class=</span><span class="se">\"</span><span class="s2">main_input_box</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">                    &lt;span class=</span><span class="se">\"</span><span class="s2">add-on bg_lg</span><span class="se">\"</span><span class="s2">&gt;&lt;i class=</span><span class="se">\"</span><span class="s2">icon-user</span><span class="se">\"</span><span class="s2">&gt; &lt;/i&gt;&lt;/span&gt;&lt;input type=</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2"> name=</span><span class="se">\"</span><span class="s2">username</span><span class="se">\"\n</span><span class="s2">                                                                                       id=</span><span class="se">\"</span><span class="s2">username</span><span class="se">\"</span><span class="s2"> tabindex=</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"\n</span><span class="s2">                                                                                       class=</span><span class="se">\"</span><span class="s2">form-control</span><span class="se">\"\n</span><span class="s2">                                                                                       placeholder=</span><span class="se">\"</span><span class="s2">Username</span><span class="se">\"</span><span class="s2"> value=</span><span class="se">\"\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">                &lt;/div&gt;</span><span class="se">\n</span><span class="s2">            &lt;/div&gt;</span><span class="se">\n</span><span class="s2">        &lt;/div&gt;</span><span class="se">\n</span><span class="s2">        &lt;div class=</span><span class="se">\"</span><span class="s2">control-group</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">            &lt;div class=</span><span class="se">\"</span><span class="s2">controls</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">                &lt;div class=</span><span class="se">\"</span><span class="s2">main_input_box</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">                    &lt;span class=</span><span class="se">\"</span><span class="s2">add-on bg_ly</span><span class="se">\"</span><span class="s2">&gt;&lt;i class=</span><span class="se">\"</span><span class="s2">icon-lock</span><span class="se">\"</span><span class="s2">&gt;&lt;/i&gt;&lt;/span&gt;&lt;input type=</span><span class="se">\"</span><span class="s2">password</span><span class="se">\"</span><span class="s2"> name=</span><span class="se">\"</span><span class="s2">password</span><span class="se">\"\n</span><span class="s2">                                                                                      id=</span><span class="se">\"</span><span class="s2">password</span><span class="se">\"</span><span class="s2"> tabindex=</span><span class="se">\"</span><span class="s2">2</span><span class="se">\"\n</span><span class="s2">                                                                                      class=</span><span class="se">\"</span><span class="s2">form-control</span><span class="se">\"\n</span><span class="s2">                                                                                      placeholder=</span><span class="se">\"</span><span class="s2">Password</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n</span><span class="s2">                &lt;/div&gt;</span><span class="se">\n</span><span class="s2">            &lt;/div&gt;</span><span class="se">\n</span><span class="s2">        &lt;/div&gt;</span><span class="se">\n</span><span class="s2">        &lt;div class=</span><span class="se">\"</span><span class="s2">form-actions</span><span class="se">\"</span><span class="s2">&gt;</span><span class="se">\n\n</span><span class="s2">            &lt;span class=</span><span class="se">\"</span><span class="s2">pull-right</span><span class="se">\"</span><span class="s2">&gt;&lt;button class=</span><span class="se">\"</span><span class="s2">btn btn-lg btn-primary </span><span class="se">\"</span><span class="s2"> type=</span><span class="se">\"</span><span class="s2">submit</span><span class="se">\"</span><span class="s2">&gt;Sign in&lt;/button&gt;&lt;/span&gt;</span><span class="se">\n</span><span class="s2">        &lt;/div&gt;</span><span class="se">\n</span><span class="s2">    &lt;/form&gt;</span><span class="se">\n</span><span class="s2">&lt;/div&gt;</span><span class="se">\n\n</span><span class="s2">&lt;script src=</span><span class="se">\"</span><span class="s2">/static/js/jquery.min.js</span><span class="se">\"</span><span class="s2">&gt;&lt;/script&gt;</span><span class="se">\n</span><span class="s2">&lt;script src=</span><span class="se">\"</span><span class="s2">/static/js/archery.login.js</span><span class="se">\"</span><span class="s2">&gt;&lt;/script&gt;</span><span class="se">\n</span><span class="s2">&lt;/body&gt;</span><span class="se">\n\n</span><span class="s2">&lt;/html&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requestHeader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET http://127.0.0.1:8008/webscanners/ HTTP/1.1</span><span class="se">\r\n</span><span class="s2">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</span><span class="se">\r\n</span><span class="s2">Pragma: no-cache</span><span class="se">\r\n</span><span class="s2">Cache-Control: no-cache</span><span class="se">\r\n</span><span class="s2">Content-Length: 0</span><span class="se">\r\n</span><span class="s2">Cookie: _sm_au_c=iVVTtWtfRrV5RSSs13;JSESSIONID=4B9D9690;</span><span class="se">\r\n</span><span class="s2">Host: 127.0.0.1:8008</span><span class="se">\r\n\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cookieParams"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_sm_au_c=iVVTtWtfRrV5RSSs13;JSESSIONID=4B9D9690;csrftoken=15coi19x5Tb4QklEg614BhFRUKOgvb2dMStqmUOc6c2yLlMsJ2e29lFr5GKgmP4a; expires=Thu, 31-Jan-2019 05:09:59 GMT; Max-Age=31449600; Path=/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"res_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"res_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"297"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+
+</span></code></pre>
+<p>This endpoint retrieves vulnerability data for particular web scan. Archery performing web scan and if you want to list down all scan results of particular scan, you can use this API. This is simple HTTP post request which list down all your web scans data. </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/api/webscanresult/</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scan_id</td>
+<td>Yes</td>
+<td>Provide the scan ID</td>
+</tr>
+</tbody></table>
+<h1 id='network-scans'>Network Scans</h1><h2 id='get-all-network-scans'>Get All Network Scans</h2><pre class="highlight shell tab-shell"><code>
+curl <span class="s2">"http://localhost:8000/api/networkscan/"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: JWT token"</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.222.131"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c277f6e8-48ac-4245-bd66-6091d0f49d63"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e0266f2-49af-49ab-917e-b8302a0bddc7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2365"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"344"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"528"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.269000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.283000Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.222.131"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93a102fe-0d16-465b-b487-f331af1bfb9b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e082a24e-5a95-43d1-bf13-1305c1c94e4e"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8aac9e08-7069-45f0-b7f3-491a3b667e6c"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_vul"</span><span class="p">:</span><span class="w"> </span><span class="s2">"307"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.269000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11T09:01:11.283000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+
+</span></code></pre>
+<p>This endpoint retrieves all network scan results. Archery performing network and if you want to list down all available scans, you can use this API. This is simple HTTP get request which list down all your network scans. </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://localhost:8000/api/webscan/</code></p>
+<h2 id='scan-launch'>Scan Launch</h2><pre class="highlight shell tab-shell"><code>
+curl http://localhost:8000/api/networkscan/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"scan_ip":"192.168.1.1","project_id":"project_id"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Scan Launched"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>The API endpoint use for Launch the scans. You can provide all required input and scan will be launched.</p>
+
+<!-- <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/api/networkscan/</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scan_ip</td>
+<td>Yes</td>
+<td>Provide the scan target IP</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>Yes</td>
+<td>Provide Project ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-scan-results-2'>Get Scan Results</h2><pre class="highlight shell tab-shell"><code>
+curl http://localhost:8000/api/networkscanresult/ <span class="se">\</span>
+    -X POST <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
+    -d <span class="s1">'{"scan_id":"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vul_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2a2b3c7a-f1cf-409c-8baf-d8d950cbab1f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'fckeditor' Connectors Arbitrary File Upload Vulnerability"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05T15:35:03Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modification_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05T15:35:03Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.222.133"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"general/tcp"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_nvt_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"threat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"severity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qod"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NVT timed out after 600 seconds."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filtered"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vuln_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Web application abuses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cvss_base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOCVE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOBID"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"xref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"URL:http://www.fckeditor.net"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cvss_base_vector=AV:N/AC:H/Au:S/C:P/I:P/A:P|summary=Web applications providing a wrong configured 'fckeditor'</span><span class="se">\n</span><span class="s2">  connectors might be prone to an arbitrary-file-upload vulnerability.|impact=An attacker may leverage this issue to upload arbitrary files to the</span><span class="se">\n</span><span class="s2">  affected system</span><span class="se">\n</span><span class="s2"> this can result in arbitrary code execution within the context of the vulnerable application.|solution=Check the config.php of this connector and make sure that no arbitrary file</span><span class="se">\n</span><span class="s2">  extensions are allowed for uploading.|solution_type=Workaround|qod_type=remote_analysis"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"banner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remote_analysis"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01 13:57:09.607000+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vul_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"155584f4-c9f1-4e40-95f7-bb5d893a0743"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/doc directory browsable"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creation_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05T14:07:12Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modification_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05T14:07:12Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.222.131"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80/tcp"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nvt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_nvt_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"threat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"severity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qod"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vulnerable url: http://192.168.222.131/doc/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"term"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filtered"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vuln_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"family"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Web application abuses"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cvss_base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CVE-1999-0678"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"318"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"xref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOXREF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cvss_base_vector=AV:N/AC:L/Au:N/C:P/I:N/A:N|solution=Use access restrictions for the /doc directory.</span><span class="se">\n</span><span class="s2">  If you use Apache you might use this in your access.conf:</span><span class="se">\n\n</span><span class="s2">  &lt;Directory /usr/doc&gt;</span><span class="se">\n</span><span class="s2">  AllowOverride None</span><span class="se">\n</span><span class="s2">  order deny,allow</span><span class="se">\n</span><span class="s2">  deny from all</span><span class="se">\n</span><span class="s2">  allow from localhost</span><span class="se">\n</span><span class="s2">  &lt;/Directory&gt;|summary=The /doc directory is browsable.</span><span class="se">\n</span><span class="s2">  /doc shows the content of the /usr/doc directory and therefore it shows which programs and - important! - the version of the installed programs.|solution_type=Mitigation|qod_type=remote_banner"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"banner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"remote_banner"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01 13:57:09.646000+00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+
+</span></code></pre>
+<p>This endpoint retrieves vulnerability data for particular Network scan. Archery performing Network scan and if you want to list down all scan results of particular scan, you can use this API. This is simple HTTP post request which list down all your Network scans data. </p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/api/networkscanresult/</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scan_id</td>
+<td>Yes</td>
+<td>Provide the scan ID</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

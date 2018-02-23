@@ -480,7 +480,7 @@ authenticated
     -X POST <span class="se">\</span>
     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
-    -d <span class="s1">'{"scan_url":"http://example.com","project_id":"project_id"}'</span>
+    -d <span class="s1">'{"scan_url":"http://example.com","project_id":"project_id","scanner":"zap_scan"}'</span>
 
 </code></pre>
 <blockquote>
@@ -514,6 +514,21 @@ authenticated
 <td>project_id</td>
 <td>Yes</td>
 <td>Provide Project ID</td>
+</tr>
+<tr>
+<td>scanner</td>
+<td>Yes</td>
+<td>Provide scanner</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>OWASP ZAP Scanner - zap_scan</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Burp Scanner - burp_scan</td>
 </tr>
 </tbody></table>
 <h2 id='get-scan-results'>Get Scan Results</h2><pre class="highlight shell tab-shell"><code>

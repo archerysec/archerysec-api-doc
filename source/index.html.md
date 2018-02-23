@@ -227,7 +227,7 @@ curl http://localhost:8000/api/webscan/ \
     -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: JWT token" \
-    -d '{"scan_url":"http://example.com","project_id":"project_id"}'
+    -d '{"scan_url":"http://example.com","project_id":"project_id","scanner":"zap_scan"}'
   
 ```
 
@@ -256,6 +256,9 @@ Parameter | Required| Description
 --------- | -----------| ------
 scan_url | Yes | Provide the scan target URL 
 project_id | Yes | Provide Project ID 
+scanner | Yes | Provide scanner 
+        |     |                 OWASP ZAP Scanner - zap_scan
+        |     |                 Burp Scanner - burp_scan
 
 ## Get Scan Results
 
@@ -522,8 +525,4 @@ This endpoint retrieves vulnerability data for particular Network scan. Archery 
 Parameter | Required| Description
 --------- | -----------| ------
 scan_id | Yes | Provide the scan ID 
-
-
-
-
 

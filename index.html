@@ -202,7 +202,7 @@
     <link href="images/favicon.png" rel="icon" type="image/png" />
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -213,6 +213,7 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -295,7 +296,17 @@
                                      __/ |
                                     |___/ 
 
-</span></code></pre>
+</span></code></pre><pre class="highlight python tab-python"><code>
+
+<span class="c"># install python package using pip:</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">PyArchery</span>
+<span class="c"># or</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">archerysec</span><span class="o">/</span><span class="n">archerysec</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">package</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">archerysec</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">package</span><span class="o">/</span><span class="n">PyArchery</span>
+<span class="c"># Build locally:</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build</span>
+
+</code></pre>
 <p>Welcome to the Archery Tool API! You can use our API to access Archery Tool API endpoints, which can help you to launch scan and manage vulnerabilities.</p>
 
 <p>The API is organized around REST. All request and response bodies, including errors, are encoded in JSON.</p>
@@ -303,6 +314,10 @@
 <p>To play around with a few examples, we recommend a REST client called Postman. Simply tap the button below to import a pre-made collection of examples.</p>
 
 <p><a href="https://www.getpostman.com/collections/:collection_id?"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
+<p>Python package :</p>
+
+<p><code>pip install PyArchery</code></p>
 <h3 id='note'>Note</h3>
 <p>Archery tool and Documentation is still <strong>in-progress</strong>. When i have free-time, i will improve documentation.</p>
 <h1 id='authentication'>Authentication</h1>
@@ -315,6 +330,24 @@ curl http://localhost:8000/api-token-auth/ <span class="se">\</span>
     -X POST <span class="se">\</span>
     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     -d <span class="s1">'{"username":"admin","password":"admin@123"}'</span> 
+
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Import the package</span>
+<span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
 
 </code></pre>
 <blockquote>
@@ -353,6 +386,28 @@ curl http://localhost:8000/api-token-auth/ <span class="se">\</span>
 <h1 id='projects'>Projects</h1><h2 id='get-all-projects'>Get All Projects</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/project/ <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: JWT token"</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Import the package</span>
+<span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="c"># List all Projects</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">list_project</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+
+<span class="c"># Printing in Json Format</span>
+<span class="k">print</span> <span class="n">project</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -390,6 +445,33 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
           "project_end":"2018-01-09",
           "project_owner":"SDF"}'</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Import the package</span>
+<span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
+
+
+<span class="n">create_proj</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">create_project</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">,</span> 
+                                    <span class="n">project_name</span><span class="o">=</span><span class="s">'testss'</span><span class="p">,</span>
+                                    <span class="n">project_disc</span><span class="o">=</span><span class="s">'sadfasd'</span><span class="p">,</span>
+                                    <span class="n">project_start</span><span class="o">=</span><span class="s">'2018-01-11'</span><span class="p">,</span> 
+                                    <span class="n">project_end</span><span class="o">=</span><span class="s">'2018-01-11'</span><span class="p">,</span> 
+                                    <span class="n">project_owner</span><span class="o">=</span><span class="s">'asds'</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">create_proj</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -438,6 +520,27 @@ curl http://localhost:8000/api/project/ <span class="se">\</span>
 <h1 id='web-scan'>Web Scan</h1><h2 id='get-all-web-scans'>Get All Web Scans</h2><pre class="highlight shell tab-shell"><code>curl http://localhost:8000/api/webscan/ <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: JWT token"</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Import the package</span>
+<span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
+
+
+<span class="n">all_web_scans</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">web_scans</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">all_web_scans</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -482,6 +585,31 @@ authenticated
     -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
     -d <span class="s1">'{"scan_url":"http://example.com","project_id":"project_id","scanner":"zap_scan"}'</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># Import the package</span>
+<span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
+
+<span class="n">web_scan_create</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">create_webscan</span><span class="p">(</span>
+    <span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+    <span class="n">scan_url</span><span class="o">=</span><span class="s">'http://demo.testfire.net'</span><span class="p">,</span>
+    <span class="n">project_id</span><span class="o">=</span><span class="s">'1de4b51c-db0f-47c4-8979-55190f01055e'</span><span class="p">,</span>
+    <span class="n">scanner</span><span class="o">=</span><span class="s">'zap_scan'</span>
+<span class="p">)</span>
+<span class="k">print</span> <span class="n">web_scan_create</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -538,6 +666,28 @@ curl http://localhost:8000/api/webscanresult/ <span class="se">\</span>
     -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
     -d <span class="s1">'{"scan_id":"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"}'</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+<span class="c"># Get the scan result</span>
+<span class="n">web_scan_result</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">webscan_result</span><span class="p">(</span>
+    <span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+    <span class="n">scan_id</span><span class="o">=</span><span class="s">'47631d4b-b715-4e7f-a67d-94b8ecfa8ae8'</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">print</span> <span class="n">web_scan_result</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -607,6 +757,27 @@ curl <span class="s2">"http://localhost:8000/api/networkscan/"</span> <span clas
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: JWT token"</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">network_scans</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">network_scan</span><span class="p">(</span>
+    <span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">print</span> <span class="n">network_scans</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -652,6 +823,30 @@ curl http://localhost:8000/api/networkscan/ <span class="se">\</span>
     -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
     -d <span class="s1">'{"scan_ip":"192.168.1.1","project_id":"project_id"}'</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="c"># Create network scans</span>
+<span class="n">create_network_scan</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">create_newtworkscan</span><span class="p">(</span>
+    <span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+    <span class="n">scan_ip</span><span class="o">=</span><span class="s">'192.168.1.1'</span><span class="p">,</span>
+    <span class="n">project_id</span><span class="o">=</span><span class="s">'1de4b51c-db0f-47c4-8979-55190f01055e'</span>
+<span class="p">)</span>
+
+<span class="k">print</span> <span class="n">create_network_scan</span><span class="o">.</span><span class="n">data_json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -695,6 +890,28 @@ curl http://localhost:8000/api/networkscanresult/ <span class="se">\</span>
     -H <span class="s2">"Authorization: JWT token"</span> <span class="se">\</span>
     -d <span class="s1">'{"scan_id":"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"}'</span>
 
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">archery</span> <span class="kn">import</span> <span class="n">api</span>
+
+<span class="c"># Set Archery url</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8008'</span>
+
+<span class="c"># Setup archery connection</span>
+<span class="n">archery</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">ArcheryAPI</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+
+<span class="c"># Provide Archery Credentials for authentication.</span>
+<span class="n">authenticate</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">archery_auth</span><span class="p">(</span><span class="s">'admin'</span><span class="p">,</span> <span class="s">'admin@123A'</span><span class="p">)</span>
+
+<span class="c"># Collect Token after authentication</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authenticate</span><span class="o">.</span><span class="n">data</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">viewitems</span><span class="p">():</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">value</span>
+<span class="c"># Get the network scan results</span>
+<span class="n">network_result</span> <span class="o">=</span> <span class="n">archery</span><span class="o">.</span><span class="n">networkscan_result</span><span class="p">(</span>
+    <span class="n">auth</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+    <span class="n">scan_id</span><span class="o">=</span><span class="s">'54fbaa87-e22f-4817-b4a2-15b86aa58e9c'</span>
+<span class="p">)</span>
+
+<span class="k">print</span> <span class="n">network_result</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -847,6 +1064,7 @@ curl http://localhost:8000/api/networkscanresult/ <span class="se">\</span>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
           </div>
       </div>
     </div>

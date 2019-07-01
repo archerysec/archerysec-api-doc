@@ -262,7 +262,7 @@ project_id | Yes | Provide Project ID
 ```shell
 
 curl http://localhost:8000/api/webscanresult/ \
-    -X POST \
+    -X GET \
     -H "Content-Type: application/json" \
     -H "Authorization: JWT token" \
     -d '{"scan_id":"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"}'
@@ -321,7 +321,7 @@ This endpoint retrieves vulnerability data for particular web scan. Archery perf
 
 ### HTTP Request
 
-`POST http://localhost:8000/api/webscanresult/`
+`GET http://localhost:8000/api/webscanresult/`
 
 ### URL Parameters
 
@@ -383,7 +383,7 @@ This endpoint retrieves all network scan results. Archery performing network and
 
 ### HTTP Request
 
-`GET http://localhost:8000/api/webscan/`
+`GET http://localhost:8000/api/networkscan/`
 
 ## Scan Launch  
 
@@ -429,7 +429,7 @@ project_id | Yes | Provide Project ID
 ```shell
 
 curl http://localhost:8000/api/networkscanresult/ \
-    -X POST \
+    -X GET \
     -H "Content-Type: application/json" \
     -H "Authorization: JWT token" \
     -d '{"scan_id":"a20b9c2e-1bd0-4a69-8771-67c023a3b96b"}'
@@ -515,7 +515,7 @@ This endpoint retrieves vulnerability data for particular Network scan. Archery 
 
 ### HTTP Request
 
-`POST http://localhost:8000/api/networkscanresult/`
+`GET http://localhost:8000/api/networkscanresult/`
 
 ### URL Parameters
 
